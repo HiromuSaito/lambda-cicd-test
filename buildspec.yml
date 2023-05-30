@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+  pre_build:
+    commands:
+      - npm run test
+      - rm -rf ./__tests__
+      - npm prune --production
+  build:
+    commands:
+      - sam deploy --config-file samconfig.toml 
+artifacts:
+  type: zip
+  files:
+    - template-export.yml
