@@ -15,9 +15,7 @@ phases:
       - npm prune --production
   build:
     commands:
-      - |
-        sam deploy --config-file samconfig.toml  \ 
-        --parameter-overrides ZipFileBucket=lambda-cicd-test ZipFileKey=${DATETIME}.zip
+      - sam deploy --config-file samconfig.toml  --parameter-overrides ZipFileBucket=lambda-cicd-test ZipFileKey=${DATETIME}.zip
 artifacts:
   type: zip
   files:
