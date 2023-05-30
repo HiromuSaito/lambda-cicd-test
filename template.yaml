@@ -14,6 +14,9 @@ Resources:
       Architectures:
       - x86_64
       Handler: src/handlers/scheduled-event-logger.scheduledEventLoggerHandler
+      CodeUri:
+        Bucket: !Ref ZipFileBucket
+        Key: !Ref ZipFileKey
       Events:
         CloudWatchEvent:
           Type: Schedule
