@@ -15,6 +15,9 @@ phases:
       - npm prune --production
   build:
     commands:
+      - echo Deploying SAM template...
+      - zip -r ${DATETIME}.zip *
+      - aws s3 mv ${DATETIME}.zip s3://lambda-cicd-test/${DATETIME}.zip
       - sam deploy --config-file samconfig.toml  --parameter-overrides ZipFileBucket=lambda-cicd-test ZipFileKey=${DATETIME}.zip
 artifacts:
   type: zip
