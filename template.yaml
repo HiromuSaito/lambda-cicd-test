@@ -11,7 +11,7 @@ Parameters:
     Type: String
 
 Resources:
-  ScheduledEventLogger:
+  TestFunction:
     Type: AWS::Serverless::Function
     Properties:
       Description: A Lambda function that logs the payload of messages sent to an
@@ -23,10 +23,5 @@ Resources:
       CodeUri:
         Bucket: !Ref ZipFileBucket
         Key: !Ref ZipFileKey
-      Events:
-        CloudWatchEvent:
-          Type: Schedule
-          Properties:
-            Schedule: cron(0 * * * ? *)
       MemorySize: 128
       Timeout: 100
