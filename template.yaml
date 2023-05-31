@@ -3,12 +3,13 @@ Description: >-
   lambda-cicd-test
 Transform:
 - AWS::Serverless-2016-10-31
-Parameters:
- ZipFileBucket:
-    Type: String
 
+Parameters:
+  ZipFileBucket:
+    Type: String
   ZipFileKey:
     Type: String
+    
 Resources:
   ScheduledEventLogger:
     Type: AWS::Serverless::Function
